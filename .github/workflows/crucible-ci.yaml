@@ -8,6 +8,12 @@ on:
     - '**.md'
     - .github/workflows/faux-crucible-ci.yaml
     - 'docs/**'
+  merge_group:
+    paths-ignore:
+    - LICENSE
+    - '**.md'
+    - .github/workflows/faux-crucible-ci.yaml
+    - 'docs/**'
   workflow_dispatch:
 
 jobs:
