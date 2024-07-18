@@ -84,11 +84,13 @@ jobs:
 
 # Sets environment variables for this step. `GH_TOKEN` is the token
 # generated in the first step. `ITEM_ID` is the ID of the pull request
-# or issue that triggered this workflow.
+# or issue that triggered this workflow.  If the event is a pull
+# request then use the pull_request's node_id, otherwise use the
+# issue's node_id.
       - name: Add PR to project
         env:
           GH_TOKEN: ${{ steps.generate-token.outputs.token }}
-          ITEM_ID: ${{ github.event.pull_request.node_id }}
+          ITEM_ID: ${{ github.event.pull_request && github.event.pull_request.node_id || github.event.issue.node_id }}
 
         # Uses [GitHub CLI](https://cli.github.com/manual/) and the
         # API to add the pull request that triggered this workflow to
