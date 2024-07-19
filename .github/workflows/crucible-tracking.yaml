@@ -55,7 +55,7 @@ jobs:
           echo 'STATUS_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
           echo 'QUEUED_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="Queued") |.id' project_data.json) >> $GITHUB_ENV
 
-      - name: Add PR to project
+      - name: Add item to project
         env:
           GH_TOKEN: ${{ steps.generate-token.outputs.token }}
           ITEM_ID: ${{ github.event.pull_request && github.event.pull_request.node_id || github.event.issue.node_id }}
