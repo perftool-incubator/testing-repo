@@ -8,7 +8,7 @@ on:
 
 jobs:
   project-tracker:
-    runs-on: self-hosted
+    runs-on: [ self-hosted, project-tracker ]
     steps:
 
       - name: Generate token
