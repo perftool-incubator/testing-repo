@@ -9,6 +9,7 @@ on:
 jobs:
   project-tracker:
     runs-on: [ self-hosted, project-tracker ]
+    timeout-minutes: 5
     steps:
 
       - name: Generate token
