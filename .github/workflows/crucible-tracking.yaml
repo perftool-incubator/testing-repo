@@ -1,13 +1,17 @@
-name: Add PR/Issue to Crucible Tracking project
+name: crucible-tracking
 
 on:
-  pull_request:
-    types: [ opened ]
-  issues:
-    types: [ opened ]
+  workflow_call:
+    inputs:
+      app_id:
+        required: true
+        type: string
+    secrets:
+      private_key:
+        required: true
 
 jobs:
-  project-tracker:
+  project-tracking:
     runs-on: [ self-hosted, project-tracker ]
     timeout-minutes: 5
     steps:
@@ -16,8 +20,8 @@ jobs:
         id: generate-token
         uses: actions/create-github-app-token@v1
         with:
-          app-id: ${{ vars.APP_ID__PROJECT_CRUCIBLE_TRACKING }}
-          private-key: ${{ secrets.PRIVATE_KEY__PROJECT_CRUCIBLE_TRACKING }}
+          app-id: ${{ inputs.app_id }}
+          private-key: ${{ secrets.private_key }}
 
       - name: Get project data
         env:
