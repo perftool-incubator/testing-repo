@@ -9,7 +9,7 @@ on:
 jobs:
   call-crucible-tracking:
     if: github.repository_owner == 'perftool-incubator'
-    uses: ./.github/workflows/crucible-tracking.yaml
+    uses: perftool-incubator/crucible-ci/.github/workflows/crucible-tracking.yaml@main
     with:
       app_id: ${{ vars.APP_ID__PROJECT_CRUCIBLE_TRACKING }}
     secrets:
