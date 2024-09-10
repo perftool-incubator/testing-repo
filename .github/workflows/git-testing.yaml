@@ -1,0 +1,37 @@
+name: git-testing
+
+on:
+  workflow_dispatch:
+
+jobs:
+  default-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: run git commands to introspect the git repository
+        run: |
+          set -x
+          git status
+          git branch --show-current
+          git branch --list --all
+          git tag --list
+          git remote --verbose
+          git rev-parse --verify HEAD
+          git log --stat
+  modified-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: run git commands to introspect the git repository
+        run: |
+          set -x
+          git status
+          git branch --show-current
+          git branch --list --all
+          git tag --list
+          git remote --verbose
+          git rev-parse --verify HEAD
+          git log --stat
