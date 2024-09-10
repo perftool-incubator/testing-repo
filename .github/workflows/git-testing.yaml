@@ -1,7 +1,13 @@
 name: git-testing
 
 on:
+  pull_request:
+    branches: [ master ]
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}/git-testing
+  cancel-in-progress: true
 
 jobs:
   default-checkout:
