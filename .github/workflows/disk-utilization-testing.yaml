@@ -18,7 +18,7 @@ jobs:
           df -h
           date
       - name: Free Disk Space
-        uses: jlumbroso/free-disk-space@54081f1
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
         with:
           swap-storage: false
       - name: see what is there - end
