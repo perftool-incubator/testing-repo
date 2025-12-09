@@ -16,8 +16,10 @@ jobs:
       - name: see what is there - begin
         run: |
           df -h
+          date
       - name: Free Disk Space
         uses: jlumbroso/free-disk-space@main
       - name: see what is there - end
         run: |
+          date
           df -h
