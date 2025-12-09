@@ -13,8 +13,11 @@ jobs:
   default-checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: see what is there
+      - name: see what is there - begin
         run: |
           df -h
-          ls -l /opt
-          du -hsc /opt
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+      - name: see what is there - end
+        run: |
+          df -h
