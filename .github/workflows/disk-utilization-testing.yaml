@@ -1,0 +1,20 @@
+name: disk-utilization-testing
+
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}/disk-utilization-testing
+  cancel-in-progress: true
+
+jobs:
+  default-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: see what is there
+        run: |
+          df -h
+          ls -l /opt
+          du -hsc /opt
