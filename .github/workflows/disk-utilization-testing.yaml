@@ -19,6 +19,8 @@ jobs:
           date
       - name: Free Disk Space
         uses: jlumbroso/free-disk-space@main
+        with:
+          swap-storage: false
       - name: see what is there - end
         run: |
           date
