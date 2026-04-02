@@ -1,10 +1,3 @@
 # testing-repo
-this is to test a repo's primary branch migration in the crucible ecosystem, this is just an experiment and not meant to hold anything useful
 
-# PR test
-
-adding some information to the README for experimentation purposes
-
-# A second PR test
-
-the testing-repo has been merged into upstream Crucible, testing update behavior
+A development testing repository used to validate crucible's repo management and distribution mechanisms (subproject updates, branch migration, CI integration, etc.). This repo serves no runtime purpose for end users and is not meant to hold anything useful beyond what is needed for these tests.
